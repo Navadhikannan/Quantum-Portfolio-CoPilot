@@ -143,6 +143,35 @@ correlation_matrix = (
     random_matrix + random_matrix.T
 ) / 2
 
+
+# Generate Covariance Matrix
+
+
+# Extract volatility values
+volatility = df["Volatility"].values
+
+# Create diagonal volatility matrix
+volatility_matrix = np.diag(volatility)
+
+# Calculate covariance matrix
+covariance_matrix = (
+    volatility_matrix
+    @ correlation_matrix
+    @ volatility_matrix
+)
+
+# Convert to DataFrame
+covariance_df = pd.DataFrame(
+    covariance_matrix,
+    index=df["Asset_ID"],
+    columns=df["Asset_ID"],
+)
+
+# Save
+covariance_file = DATA_DIR / "covariance_matrix.csv"
+
+covariance_df.to_csv(covariance_file)
+
 # Set diagonal = 1
 np.fill_diagonal(correlation_matrix, 1.0)
 
@@ -165,6 +194,7 @@ print("=" * 60)
 
 print(df.head())
 
-print("\nTotal Assets       :", len(df))
-print("Asset Dataset      :", asset_file)
-print("Correlation Matrix :", correlation_file)
+print("\nTotal Assets      :", len(df))
+print("Asset Dataset     :", asset_file)
+print("Correlation Matrix:", correlation_file)
+print("Covariance Matrix :", covariance_file)
