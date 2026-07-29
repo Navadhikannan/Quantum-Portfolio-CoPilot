@@ -55,10 +55,10 @@ TOLERANCE = 1e-8
 # ==========================================================
 
 DATA_FOLDER = "data"
-
-ASSET_DATA_FILE = "synthetic_assets.csv"
-CORRELATION_FILE = "correlation_matrix.csv"
-COVARIANCE_FILE = "covariance_matrix.csv"
-
 RESULT_FOLDER = "results"
-OUTPUT_PORTFOLIO = "optimized_portfolio.csv"
+
+ASSET_DATA_FILE = f"{DATA_FOLDER}/synthetic_assets.csv"
+CORRELATION_FILE = f"{DATA_FOLDER}/correlation_matrix.csv"
+COVARIANCE_FILE = f"{DATA_FOLDER}/covariance_matrix.csv"
+
+OUTPUT_PORTFOLIO = f"{RESULT_FOLDER}/optimized_portfolio.csv"
