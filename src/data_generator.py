@@ -1,34 +1,20 @@
-"""
-Module: data_generator.py
-
-Purpose:
-Generate a realistic synthetic dataset for the
-Quantum Portfolio Co-Pilot project.
-
-Author:
-Navadhikannan N
-
-Challenge:
-WISER Global Quantum + AI Program 2026
-"""
-
 from pathlib import Path
 import random
 
+import numpy as np
 import pandas as pd
-
 
 
 # Configuration
 
 
 random.seed(42)
+np.random.seed(42)
 
 DATA_DIR = Path("data")
 DATA_DIR.mkdir(exist_ok=True)
 
 NUM_ASSETS = 30
-
 
 
 # Asset Configuration
@@ -50,7 +36,6 @@ ASSET_CONFIG = {
             "Industrial",
         ],
     },
-
     "Bond": {
         "count": 6,
         "return_range": (0.03, 0.06),
@@ -62,7 +47,6 @@ ASSET_CONFIG = {
             "Corporate",
         ],
     },
-
     "ETF": {
         "count": 5,
         "return_range": (0.06, 0.10),
@@ -73,7 +57,6 @@ ASSET_CONFIG = {
             "Diversified",
         ],
     },
-
     "Commodity": {
         "count": 4,
         "return_range": (0.05, 0.11),
@@ -87,7 +70,6 @@ ASSET_CONFIG = {
             "Agriculture",
         ],
     },
-
     "Cash": {
         "count": 3,
         "return_range": (0.01, 0.03),
@@ -101,12 +83,10 @@ ASSET_CONFIG = {
 }
 
 
-
-# Generate Assets
+# Generate Synthetic Assets
 
 
 assets = []
-
 asset_id = 1
 
 for asset_class, config in ASSET_CONFIG.items():
@@ -133,25 +113,51 @@ for asset_class, config in ASSET_CONFIG.items():
         }
 
         assets.append(asset)
-
         asset_id += 1
 
 
-
-# Create DataFrame
+# Create Asset DataFrame
 
 
 df = pd.DataFrame(assets)
 
 
+# Save Synthetic Dataset
 
-# Save Dataset
 
-output_file = DATA_DIR / "synthetic_assets.csv"
+asset_file = DATA_DIR / "synthetic_assets.csv"
+df.to_csv(asset_file, index=False)
 
-df.to_csv(output_file, index=False)
+
+# Generate Correlation Matrix
+
+
+random_matrix = np.random.uniform(
+    low=-0.30,
+    high=0.90,
+    size=(NUM_ASSETS, NUM_ASSETS),
+)
+
+# Make matrix symmetric
+correlation_matrix = (
+    random_matrix + random_matrix.T
+) / 2
+
+# Set diagonal = 1
+np.fill_diagonal(correlation_matrix, 1.0)
+
+correlation_df = pd.DataFrame(
+    correlation_matrix,
+    index=df["Asset_ID"],
+    columns=df["Asset_ID"],
+)
+
+correlation_file = DATA_DIR / "correlation_matrix.csv"
+correlation_df.to_csv(correlation_file)
+
 
 # Preview
+
 
 print("=" * 60)
 print("Synthetic Portfolio Dataset Generated Successfully")
@@ -159,5 +165,6 @@ print("=" * 60)
 
 print(df.head())
 
-print("\nTotal Assets :", len(df))
-print("Saved To     :", output_file)
+print("\nTotal Assets       :", len(df))
+print("Asset Dataset      :", asset_file)
+print("Correlation Matrix :", correlation_file)
