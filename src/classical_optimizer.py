@@ -9,7 +9,8 @@ from config import (
     MIN_WEIGHT,
     TOTAL_WEIGHT,
     RISK_AVERSION,
-    OUTPUT_PORTFOLIO
+    OUTPUT_PORTFOLIO,
+    ASSET_CLASS_LIMITS,
 )
 
 
@@ -64,24 +65,50 @@ def objective_function(weights, expected_returns, covariance_matrix):
     return portfolio_risk - (RISK_AVERSION * portfolio_return)
 
 
-def optimize_portfolio(expected_returns, covariance_matrix):
-    """Run classical portfolio optimization."""
+def optimize_portfolio(assets, expected_returns, covariance_matrix):
+    """Run portfolio optimization with asset-class constraints."""
 
     num_assets = len(expected_returns)
 
     initial_weights = np.ones(num_assets) / num_assets
 
+    # Individual asset bounds
     bounds = [
         (MIN_WEIGHT, MAX_WEIGHT)
         for _ in range(num_assets)
     ]
 
-    constraints = (
-        {
-            "type": "eq",
-            "fun": lambda w: np.sum(w) - TOTAL_WEIGHT
-        },
-    )
+    constraints = []
+
+    # Total portfolio weight must equal 100%
+    constraints.append({
+        "type": "eq",
+        "fun": lambda w: np.sum(w) - TOTAL_WEIGHT
+    })
+
+    # Asset-class allocation constraints
+    for asset_class, limits in ASSET_CLASS_LIMITS.items():
+
+        indices = assets.index[
+            assets["Asset_Class"] == asset_class
+        ].tolist()
+
+        if not indices:
+            continue
+
+        # Minimum allocation
+        constraints.append({
+            "type": "ineq",
+            "fun": lambda w, idx=indices, m=limits["min"]:
+                np.sum(w[idx]) - m
+        })
+
+        # Maximum allocation
+        constraints.append({
+            "type": "ineq",
+            "fun": lambda w, idx=indices, m=limits["max"]:
+                m - np.sum(w[idx])
+        })
 
     result = minimize(
         objective_function,
@@ -89,7 +116,7 @@ def optimize_portfolio(expected_returns, covariance_matrix):
         args=(expected_returns, covariance_matrix),
         method="SLSQP",
         bounds=bounds,
-        constraints=constraints
+        constraints=constraints,
     )
 
     return result
@@ -101,6 +128,14 @@ def save_results(assets, weights):
     portfolio = assets.copy()
 
     portfolio["Weight"] = weights
+
+    
+    portfolio = portfolio[portfolio["Weight"] > 0.001]
+
+    portfolio = portfolio.sort_values(
+        by="Weight",
+        ascending=False
+    )
 
     portfolio.to_csv(OUTPUT_PORTFOLIO, index=False)
 
@@ -128,6 +163,7 @@ def main():
     expected_returns = assets["Expected_Return"].values
 
     optimization = optimize_portfolio(
+        assets,
         expected_returns,
         covariance.values
     )

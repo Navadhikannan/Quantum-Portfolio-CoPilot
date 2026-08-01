@@ -34,11 +34,13 @@ RISK_AVERSION = 0.50
 # Asset Class Allocation Limits
 # ==========================================================
 
-MAX_EQUITY = 0.60
-MAX_BOND = 0.40
-MAX_ETF = 0.30
-MAX_COMMODITY = 0.20
-MIN_CASH = 0.05
+ASSET_CLASS_LIMITS = {
+    "Equity": {"min": 0.30, "max": 0.60},
+    "Bond": {"min": 0.10, "max": 0.40},
+    "ETF": {"min": 0.05, "max": 0.30},
+    "Commodity": {"min": 0.00, "max": 0.20},
+    "Cash": {"min": 0.05, "max": 0.10},
+}
 
 # ==========================================================
 # Optimization Settings
