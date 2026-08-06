@@ -1,0 +1,5 @@
+Asset_ID,Asset_Name,Asset_Class,Sector,Expected_Return,Volatility,Transaction_Cost,Liquidity_Score,Weight
+A05,Equity_5,Equity,Energy,0.1254,0.2552,0.004,8,0.25
+A06,Equity_6,Equity,Industrial,0.1154,0.1861,0.0053,9,0.25
+A08,Equity_8,Equity,Technology,0.1338,0.2197,0.0098,10,0.25
+A12,Equity_12,Equity,Industrial,0.14,0.1711,0.0061,9,0.25

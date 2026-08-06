@@ -8,6 +8,12 @@ RANDOM_SEED = 42
 # Number of synthetic assets
 NUM_ASSETS = 30
 
+# Classical optimization uses all assets
+CLASSICAL_NUM_ASSETS = 30
+
+# Quantum optimization uses a subset
+QUANTUM_NUM_ASSETS = 15
+
 # ==========================================================
 # Portfolio Constraints
 # ==========================================================
@@ -53,6 +59,24 @@ MAX_ITERATIONS = 500
 TOLERANCE = 1e-8
 
 # ==========================================================
+# QUBO Settings
+# ==========================================================
+
+QUBO_SETTINGS = {
+    # Portfolio objective weights
+    "return_weight": 1.00,
+    "risk_weight": 0.50,
+    "transaction_cost_weight": 0.20,
+
+    # Quantum optimization parameters
+    "risk_aversion": 0.50,
+
+    # Penalty parameters
+    "constraint_penalty": 10.0,
+    "selection_penalty": 5.0,
+}
+
+# ==========================================================
 # File Paths
 # ==========================================================
 
@@ -64,3 +88,5 @@ CORRELATION_FILE = f"{DATA_FOLDER}/correlation_matrix.csv"
 COVARIANCE_FILE = f"{DATA_FOLDER}/covariance_matrix.csv"
 
 OUTPUT_PORTFOLIO = f"{RESULT_FOLDER}/optimized_portfolio.csv"
+QUBO_MATRIX_FILE = f"{DATA_FOLDER}/qubo_matrix.csv"
+QUANTUM_RESULTS_FILE = f"{RESULT_FOLDER}/quantum_portfolio.csv"

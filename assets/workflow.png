@@ -1,0 +1,9 @@
+## 🔄 Project Workflow
+
+<p align="center">
+  <img src="assets/workflow.png"
+       alt="Project Workflow"
+       width="100%">
+</p>
+
+The workflow begins with synthetic dataset generation, performs classical and quantum portfolio optimization, compares their performance, and presents the results through an interactive Streamlit dashboard.
