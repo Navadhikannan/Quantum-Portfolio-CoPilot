@@ -231,6 +231,13 @@ The complete project documentation is available in the **docs/** folder.
 
 ---
 
+## 👨‍💻 Author
+
+**Navadhikannan N**
+🎓 B.Tech – Electronics and Communication Engineering (ECE)  
+🏫 Vels Institute of Science, Technology & Advanced Studies (VISTAS)  
+📧 Email: navadhi2306k@gmail.com  
+
 # 📄 License
 
 This project is licensed under the MIT License.
