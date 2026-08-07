@@ -48,8 +48,6 @@ The project follows a modular hybrid architecture integrating classical optimiza
 
 # 🔄 Project Workflow
 
-# 🔄 Project Workflow
-
 <p align="center">
   <img src="assets/workflow.png" alt="Project Workflow" width="100%">
 </p>
