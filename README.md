@@ -49,7 +49,7 @@ The project follows a modular hybrid architecture integrating classical optimiza
 # 🔄 Project Workflow
 
 <p align="center">
-  <img src="assets/workflow.png" alt="Project Workflow" width="100%">
+  <img src="assets/workflow.png"> alt="Project Workflow" width="100%">
 </p>
 
 The workflow begins with synthetic dataset generation, performs classical optimization, transforms the problem into a QUBO model, executes quantum optimization using QAOA, compares the results, and visualizes them through the Streamlit dashboard.
