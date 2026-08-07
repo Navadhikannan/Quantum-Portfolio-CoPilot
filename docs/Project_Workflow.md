@@ -17,7 +17,7 @@ The Quantum Portfolio CoPilot follows a structured hybrid workflow that integrat
 ## Workflow Diagram
 
 <p align="center">
-  <img src="../assets/workflow.png" alt="Quantum Portfolio CoPilot Workflow" width="100%">
+  <img src="assets/workflow.png"> alt="Quantum Portfolio CoPilot Workflow" width="100%">
 </p>
 
 ---
