@@ -9,10 +9,7 @@ from config import (
     QUANTUM_NUM_ASSETS,
 )
 
-
-# ==========================================================
 # Load Data
-# ==========================================================
 
 def load_data():
     """Load asset dataset and covariance matrix."""
@@ -36,10 +33,7 @@ def load_data():
 
     return assets, covariance
 
-
-# ==========================================================
 # Build QUBO Matrix
-# ==========================================================
 
 def build_qubo_matrix(
     expected_returns,
@@ -75,10 +69,8 @@ def build_qubo_matrix(
 
     return qubo
 
-
-# ==========================================================
 # Save QUBO Matrix
-# ==========================================================
+
 
 def save_qubo_matrix(
     qubo_matrix,
@@ -96,10 +88,8 @@ def save_qubo_matrix(
 
     print(f"✓ QUBO matrix saved to {QUBO_MATRIX_FILE}")
 
-
-# ==========================================================
 # Display Summary
-# ==========================================================
+
 
 def display_summary(
     assets,
@@ -122,9 +112,8 @@ def display_summary(
         print(f"{assets.iloc[i]['Asset_ID']} : {diagonal[i]:.6f}")
 
 
-# ==========================================================
 # Main
-# ==========================================================
+
 
 def main():
 
@@ -150,10 +139,8 @@ def main():
         qubo_matrix,
     )
 
-
-# ==========================================================
 # Entry Point
-# ==========================================================
+
 
 if __name__ == "__main__":
     main()

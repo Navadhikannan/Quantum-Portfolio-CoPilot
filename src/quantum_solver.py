@@ -31,9 +31,7 @@ from qiskit_optimization.optimizers import COBYLA
 from qiskit.primitives import StatevectorSampler
  
  
-# ---------------------------------------------------------
 # Build Portfolio Model
-# ---------------------------------------------------------
  
 def load_portfolio_model():
     """
@@ -46,11 +44,9 @@ def load_portfolio_model():
     print("✓ Portfolio model loaded")
  
     return model
- 
- 
-# ---------------------------------------------------------
+
 # Convert to QUBO
-# ---------------------------------------------------------
+
  
 def convert_to_qubo(model):
     """
@@ -66,9 +62,9 @@ def convert_to_qubo(model):
     return qubo, converter
  
  
-# ---------------------------------------------------------
+
 # Display Information
-# ---------------------------------------------------------
+
  
 def display_qubo_summary(qubo):
  
@@ -88,9 +84,8 @@ def display_qubo_summary(qubo):
     # print(qubo.prettyprint())
  
  
-# ---------------------------------------------------------
+
 # Create QAOA Solver
-# ---------------------------------------------------------
  
 def create_qaoa_solver():
     """
@@ -127,9 +122,9 @@ def create_qaoa_solver():
     return solver
  
  
-# ---------------------------------------------------------
+
 # Solve QUBO
-# ---------------------------------------------------------
+
  
 def solve_qubo(
     solver,
@@ -147,9 +142,8 @@ def solve_qubo(
  
     return result
 
-# ---------------------------------------------------------
 # Decode Solution
-# ---------------------------------------------------------
+
 
 def decode_solution(result):
     """
@@ -165,9 +159,9 @@ def decode_solution(result):
     return selected_indices
 
 
-# ---------------------------------------------------------
+
 # Save Quantum Portfolio
-# ---------------------------------------------------------
+
 
 def save_quantum_portfolio(selected_indices):
     """
@@ -197,9 +191,8 @@ def save_quantum_portfolio(selected_indices):
     return portfolio
 
 
-# ---------------------------------------------------------
 # Display Portfolio
-# ---------------------------------------------------------
+
 
 def display_portfolio(portfolio):
 
@@ -218,11 +211,8 @@ def display_portfolio(portfolio):
         ]
     )
 
- 
- 
-# ---------------------------------------------------------
 # Main
-# ---------------------------------------------------------
+
  
 def main():
 
@@ -259,7 +249,7 @@ def main():
     display_portfolio(portfolio)
 
     print(f"\nExecution Time : {elapsed:.3f} sec")
-# ---------------------------------------------------------
+
  
 if __name__ == "__main__":
     main()

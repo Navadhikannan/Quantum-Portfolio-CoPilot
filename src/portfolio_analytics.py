@@ -19,16 +19,15 @@ from config import (
     MAX_WEIGHT,
 )
 
-# ----------------------------------------
+
 # Configuration
-# ----------------------------------------
+
 
 RISK_FREE_RATE = 0.03
 
 
-# ----------------------------------------
+
 # Load Portfolio
-# ----------------------------------------
 
 def load_portfolio():
     """Load optimized portfolio."""
@@ -38,9 +37,9 @@ def load_portfolio():
     return portfolio
 
 
-# ----------------------------------------
+
 # Portfolio Metrics
-# ----------------------------------------
+
 
 def portfolio_return(portfolio):
     """Expected portfolio return."""
@@ -74,11 +73,8 @@ def sharpe_ratio(expected_return, risk):
         return 0
 
     return (expected_return - RISK_FREE_RATE) / risk
-
-
-# ----------------------------------------
 # Allocation Summary
-# ----------------------------------------
+
 
 def asset_class_allocation(portfolio):
     """Allocation by asset class."""
@@ -91,9 +87,8 @@ def asset_class_allocation(portfolio):
     )
 
 
-# ----------------------------------------
+
 # Constraint Validation
-# ----------------------------------------
 
 def validate_constraints(portfolio):
 
@@ -122,9 +117,9 @@ def validate_constraints(portfolio):
     )
 
 
-# ----------------------------------------
+
 # Main
-# ----------------------------------------
+
 
 def main():
 

@@ -2,9 +2,9 @@ import streamlit as st
 import pandas as pd
 import plotly.express as px
 
-# ----------------------------------------------------
+
 # Page Configuration
-# ----------------------------------------------------
+
 
 st.set_page_config(
     page_title="Quantum Portfolio CoPilot",
@@ -27,9 +27,8 @@ to demonstrate the application of quantum computing in financial optimization.
 
 st.divider()
 
-# ----------------------------------------------------
 # About Project
-# ----------------------------------------------------
+
 
 with st.expander("ℹ️ About this Project"):
 
@@ -64,10 +63,9 @@ Compare **Classical Portfolio Optimization** with
 - `quantum_portfolio.csv`
 - `comparison_results.csv`
 """)
-    
-# ----------------------------------------------------
+ 
 # Sidebar
-# ----------------------------------------------------
+
 
 st.sidebar.title("⚛️ Quantum Portfolio CoPilot")
 
@@ -98,9 +96,7 @@ st.sidebar.info(
     """
 )
 
-# ----------------------------------------------------
 # Project Statistics
-# ----------------------------------------------------
 
 st.sidebar.divider()
 
@@ -126,17 +122,15 @@ st.sidebar.metric(
     "QAOA"
 )
 
-# ----------------------------------------------------
 # Load Data
-# ----------------------------------------------------
+
 
 comparison = pd.read_csv("results/comparison_results.csv")
 classical = pd.read_csv("results/optimized_portfolio.csv")
 quantum = pd.read_csv("results/quantum_portfolio.csv")
 
-# ----------------------------------------------------
 # KPI Metrics
-# ----------------------------------------------------
+
 
 st.subheader("📊 Portfolio Metrics")
 
@@ -221,9 +215,8 @@ with right:
         st.success("✅ Quantum portfolio is more diversified.")
 
 
-# ----------------------------------------------------
 # Comparison Table
-# ----------------------------------------------------
+
 
 st.divider()
 
@@ -294,9 +287,9 @@ with col2:
         use_container_width=True,
     )
 
-    # ----------------------------------------------------
+
 # Sharpe Ratio Chart
-# ----------------------------------------------------
+
 
 sharpe_df = comparison[
     comparison["Metric"] == "Sharpe Ratio"
@@ -316,9 +309,9 @@ st.plotly_chart(
     use_container_width=True,
 )
 
-# ----------------------------------------------------
+
 # Portfolio Allocation
-# ----------------------------------------------------
+
 
 st.divider()
 
@@ -353,9 +346,9 @@ with pie_col1:
         use_container_width=True,
     )
 
-# ==========================
+
 # Quantum Portfolio
-# ==========================
+
 
 with pie_col2:
 
@@ -381,9 +374,8 @@ with pie_col2:
     )
 
 
-# ----------------------------------------------------
 # Portfolio Tables
-# ----------------------------------------------------
+
 
 st.divider()
 
@@ -421,9 +413,9 @@ with right:
         use_container_width=True,
     )
 
-    # ----------------------------------------------------
+
 # Download Results
-# ----------------------------------------------------
+
 
 st.divider()
 

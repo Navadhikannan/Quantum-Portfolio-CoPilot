@@ -5,10 +5,8 @@ from config import (
     QUANTUM_RESULTS_FILE,
 )
 
-
-# ==========================================================
 # Load Portfolios
-# ==========================================================
+
 
 def load_portfolios():
     """Load classical and quantum portfolio CSV files."""
@@ -18,10 +16,8 @@ def load_portfolios():
 
     return classical, quantum
 
-
-# ==========================================================
 # Portfolio Metrics
-# ==========================================================
+
 
 def portfolio_metrics(portfolio):
     """Calculate portfolio statistics."""
@@ -51,10 +47,7 @@ def portfolio_metrics(portfolio):
         "Selected Assets": len(portfolio),
     }
 
-
-# ==========================================================
 # Comparison Table
-# ==========================================================
 
 def create_comparison_table(
     classical_metrics,
@@ -70,10 +63,7 @@ def create_comparison_table(
 
     return comparison
 
-
-# ==========================================================
 # Display Comparison
-# ==========================================================
 
 def display_results(comparison):
 
@@ -87,9 +77,9 @@ def display_results(comparison):
     )
 
 
-# ==========================================================
+
 # Main
-# ==========================================================
+
 
 def main():
 
@@ -120,10 +110,8 @@ def main():
 
     display_results(comparison)
 
-
-# ==========================================================
 # Entry Point
-# ==========================================================
+
 
 if __name__ == "__main__":
     main()

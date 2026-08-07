@@ -1,6 +1,5 @@
 
 # General Settings
-# ==========================================================
 
 # Random seed for reproducible results
 RANDOM_SEED = 42
@@ -12,11 +11,10 @@ NUM_ASSETS = 30
 CLASSICAL_NUM_ASSETS = 30
 
 # Quantum optimization uses a subset
+
 QUANTUM_NUM_ASSETS = 15
 
-# ==========================================================
 # Portfolio Constraints
-# ==========================================================
 
 # Portfolio weights must sum to 100%
 TOTAL_WEIGHT = 1.0
@@ -28,17 +26,16 @@ MAX_WEIGHT = 0.20
 # Allow negative weights (short selling)?
 ALLOW_SHORT_SELLING = False
 
-# ==========================================================
+
 # Risk Preference
-# ==========================================================
+
 
 # Higher value = lower risk portfolio
 # Lower value = higher return portfolio
 RISK_AVERSION = 0.50
 
-# ==========================================================
 # Asset Class Allocation Limits
-# ==========================================================
+
 
 ASSET_CLASS_LIMITS = {
     "Equity": {"min": 0.30, "max": 0.60},
@@ -48,9 +45,8 @@ ASSET_CLASS_LIMITS = {
     "Cash": {"min": 0.05, "max": 0.10},
 }
 
-# ==========================================================
 # Optimization Settings
-# ==========================================================
+
 
 OPTIMIZER = "SLSQP"
 
@@ -58,9 +54,8 @@ MAX_ITERATIONS = 500
 
 TOLERANCE = 1e-8
 
-# ==========================================================
 # QUBO Settings
-# ==========================================================
+
 
 QUBO_SETTINGS = {
     # Portfolio objective weights
@@ -76,9 +71,7 @@ QUBO_SETTINGS = {
     "selection_penalty": 5.0,
 }
 
-# ==========================================================
 # File Paths
-# ==========================================================
 
 DATA_FOLDER = "data"
 RESULT_FOLDER = "results"
