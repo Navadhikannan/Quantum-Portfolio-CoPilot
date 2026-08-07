@@ -22,6 +22,13 @@ The project demonstrates how financial portfolio optimization problems can be fo
 
 ---
 
+## 🚀 Live Demo
+
+| Platform | Link |
+|----------|------|
+| 🌐 Streamlit Application | https://quantum-portfolio-copilot-xw3ldq9opxrcfd7tijbzz4.streamlit.app/ |
+| 💻 GitHub Repository | https://github.com/Navadhikannan/Quantum-Portfolio-CoPilot |
+
 # ✨ Features
 
 - 📈 Classical Portfolio Optimization (SLSQP)
