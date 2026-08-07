@@ -29,6 +29,62 @@ The project demonstrates how financial portfolio optimization problems can be fo
 | 🌐 Streamlit Application | https://quantum-portfolio-copilot-xw3ldq9opxrcfd7tijbzz4.streamlit.app/ |
 | 💻 GitHub Repository | https://github.com/Navadhikannan/Quantum-Portfolio-CoPilot |
 
+# 🧮 Mathematical Formulation
+
+The portfolio optimization problem is formulated using the classical **Mean-Variance Optimization (MVO)** framework and transformed into a **Quadratic Unconstrained Binary Optimization (QUBO)** problem for quantum optimization.
+
+### Expected Portfolio Return
+
+\[
+R_p=\sum_{i=1}^{N} w_i \mu_i
+\]
+
+where:
+
+- \(w_i\) = weight of asset *i*
+- \(\mu_i\) = expected return of asset *i*
+
+---
+
+### Portfolio Risk
+
+\[
+\sigma_p=\sqrt{w^T\Sigma w}
+\]
+
+where:
+
+- \(w\) = portfolio weight vector
+- \(\Sigma\) = covariance matrix
+
+---
+
+### Sharpe Ratio
+
+\[
+S=\frac{R_p-R_f}{\sigma_p}
+\]
+
+where:
+
+- \(R_f\) = risk-free rate
+
+---
+
+### QUBO Objective Function
+
+\[
+\min_x \left(x^TQx\right)
+\]
+
+where:
+
+- \(Q\) = QUBO matrix
+- \(x\) = binary decision vector
+
+The QUBO model is optimized using the **Quantum Approximate Optimization Algorithm (QAOA)** implemented in **Qiskit**.
+
+
 # ✨ Features
 
 - 📈 Classical Portfolio Optimization (SLSQP)
