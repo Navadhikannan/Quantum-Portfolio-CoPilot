@@ -90,14 +90,12 @@ This section allows users to quickly identify the strengths of each optimization
 
 A tabular comparison is provided for the following metrics:
 
-|-----------------|
 | Metric          |
 |-----------------|
 | Expected Return |
 | Portfolio Risk  |
 | Sharpe Ratio    |
 | Selected Assets |
-|-----------------|
 
 The table compares Classical and Quantum optimization results side by side.
 
